@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 
     dependencies {
@@ -16,6 +17,7 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 }
 
@@ -34,5 +36,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.umeng.umsdk:common:2.2.2'
+    implementation 'com.umeng.umsdk:analytics:8.1.4'
     api fileTree(include: ['*.jar'], dir: 'libs')
 }
