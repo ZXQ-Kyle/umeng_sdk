@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.umeng.umsdk:common:2.2.2'
-    implementation 'com.umeng.umsdk:analytics:8.1.4'
-    api fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.umeng.umsdk:common:9.1.6" //（必选）
+    implementation "com.umeng.umsdk:asms:1.1.3" // asms包依赖(必选)
+    implementation "com.umeng.umsdk:crash:0.0.5" // native crash包依赖(必选)
 }

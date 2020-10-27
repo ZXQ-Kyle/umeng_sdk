@@ -28,6 +28,7 @@ public class UmengSdkPlugin implements FlutterPlugin, MethodCallHandler {
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
+    setContext(flutterPluginBinding.getApplicationContext());
     final MethodChannel channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "umeng_sdk");
     channel.setMethodCallHandler(new UmengSdkPlugin());
 
@@ -79,6 +80,7 @@ public class UmengSdkPlugin implements FlutterPlugin, MethodCallHandler {
   // depending on the user's project. onAttachedToEngine or registerWith must both be defined
   // in the same class.
   public static void registerWith(Registrar registrar) {
+    setContext(registrar.activeContext().getApplicationContext());
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "umeng_sdk");
     channel.setMethodCallHandler(new UmengSdkPlugin());
 
@@ -183,6 +185,9 @@ public class UmengSdkPlugin implements FlutterPlugin, MethodCallHandler {
   }
 
   public static Context getContext () {
+        if (mContext==null){
+            android.util.Log.e("UMLog", "getContext()=null!!!(UmengSdkPlugin.java line:189)");
+        }
         return mContext;
     }
 
