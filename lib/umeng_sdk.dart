@@ -6,8 +6,8 @@ class UmengSdk {
   static const MethodChannel _channel =
       const MethodChannel('umeng_sdk');
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  static Future<String?> get platformVersion async {
+    final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
 
